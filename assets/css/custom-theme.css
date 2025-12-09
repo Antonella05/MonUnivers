@@ -1,0 +1,150 @@
+:root {
+  /* Palette Principale */
+  --color-primary: #007bff;
+  /* Bleu Tech "Electric" */
+  --color-primary-rgb: 0, 123, 255;
+  --color-secondary: #00d2ff;
+  /* Cyan Futuriste */
+  --color-accent: #ffffff;
+
+  /* Mode Sombre (Forcé) */
+  --bg-body: #0a0a0a;
+  /* Noir profond mais pas absolu pour confort */
+  --bg-card: #141414;
+  --bg-header: rgba(10, 10, 10, 0.95);
+  --text-main: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --border-color: #2a2a2a;
+  --shadow-color: rgba(0, 123, 255, 0.2);
+}
+
+/* Mode Sombre - Supprimé car intégré dans :root */
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Override Template Defaults with Variables */
+.header-area,
+.footer-area,
+.service-area,
+.about-area,
+.blog-area,
+.contact-area {
+  background-color: var(--bg-body) !important;
+  color: var(--text-main) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-main) !important;
+}
+
+p {
+  color: var(--text-muted) !important;
+}
+
+.card,
+.service-item,
+.blog-item {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 5px 15px var(--shadow-color) !important;
+}
+
+/* Buttons */
+.btn-tech {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white !important;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-tech::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-tech:hover::before {
+  width: 100%;
+}
+
+/* Utility Nav Wrapper */
+.utility-nav {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  gap: 15px;
+}
+
+/* Theme Toggle Button */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  /* margin-left: 20px; Removed in favor of utility-nav gap */
+}
+
+.theme-switch-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.theme-switch-btn:hover {
+  background-color: var(--bg-card);
+  color: var(--color-primary);
+}
+
+/* Language Switcher */
+.lang-switch-wrapper {
+  /* margin-left: 15px; Removed in favor of utility-nav gap */
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.lang-switch-wrapper span.active {
+  color: var(--color-primary);
+}
+
+.lang-switch-wrapper span {
+  transition: color 0.3s;
+}
+
+.lang-switch-wrapper span:hover {
+  color: var(--color-secondary);
+}
+
+/* Utilities for "Aerial" look */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: var(--bg-header);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
