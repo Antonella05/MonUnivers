@@ -148,3 +148,122 @@ p {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Blog Share Buttons Styles */
+.blog-details__share-box {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.blog-details__share-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.blog-details__share {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.blog-details__share .share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-details__share .share-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.blog-details__share .share-btn:hover::before {
+  transform: scale(1);
+}
+
+.blog-details__share .share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Social Media Brand Colors */
+.blog-details__share .share-btn[data-platform="facebook"] {
+  background: linear-gradient(135deg, #1877f2, #0e5fcc);
+}
+
+.blog-details__share .share-btn[data-platform="twitter"] {
+  background: linear-gradient(135deg, #1da1f2, #0c85d0);
+}
+
+.blog-details__share .share-btn[data-platform="linkedin"] {
+  background: linear-gradient(135deg, #0077b5, #005885);
+}
+
+.blog-details__share .share-btn[data-platform="whatsapp"] {
+  background: linear-gradient(135deg, #25d366, #1da851);
+}
+
+.blog-details__share .share-btn.copy-link {
+  background: linear-gradient(135deg, #6c757d, #545b62);
+}
+
+/* Copy Link Success State */
+.blog-details__share .share-btn.copy-link.copied {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.blog-details__share .share-btn.copy-link.copied i::after {
+  content: '✓';
+  position: absolute;
+  font-size: 12px;
+  top: 2px;
+  right: 2px;
+  background: white;
+  color: #28a745;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blog-details__share {
+    justify-content: center;
+  }
+  
+  .blog-details__share .share-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
