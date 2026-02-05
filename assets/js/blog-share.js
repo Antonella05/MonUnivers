@@ -67,6 +67,10 @@ class BlogShare {
         const { url, title, description } = this.getCurrentPageData();
         let shareUrl = '';
 
+        console.log('Sharing to:', platform);
+        console.log('URL:', url);
+        console.log('Title:', title);
+
         switch (platform) {
             case 'facebook':
                 shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
@@ -88,6 +92,8 @@ class BlogShare {
                 console.warn(`Platform ${platform} not supported`);
                 return;
         }
+
+        console.log('Share URL:', shareUrl);
 
         // Open share dialog in a popup
         this.openSharePopup(shareUrl, platform);
